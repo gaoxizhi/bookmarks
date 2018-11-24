@@ -1,8 +1,8 @@
 package site.gaox.bookmark.entity;
 
-import java.util.Date;
-
 import com.alibaba.fastjson.annotation.JSONField;
+
+import java.util.Date;
 
 public class user {
 	
