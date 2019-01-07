@@ -3,8 +3,12 @@ package site.gaox.bookmark;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -17,8 +21,9 @@ import java.util.List;
  * 等价于以默认属性使用@Configuration，@EnableAutoConfiguration和@ComponentScan
  */
 @SpringBootApplication
+@Configuration
+@MapperScan(value = "site.gaox.bookmark.*")
 //public class App {
-
 public class App extends WebMvcConfigurerAdapter {
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -78,4 +83,13 @@ public class App extends WebMvcConfigurerAdapter {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
+
+	/**
+	 * 分页插件
+	 */
+	@Bean
+	public PaginationInterceptor paginationInterceptor() {
+		return new PaginationInterceptor();
+	}
+
 }
