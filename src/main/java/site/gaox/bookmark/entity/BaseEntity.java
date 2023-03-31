@@ -8,7 +8,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -19,11 +21,12 @@ import java.time.LocalDateTime;
  */
 
 @Data
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class BaseEntity {
+public class BaseEntity implements Serializable {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

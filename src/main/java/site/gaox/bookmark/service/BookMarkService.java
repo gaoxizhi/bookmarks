@@ -1,8 +1,6 @@
 package site.gaox.bookmark.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import site.gaox.bookmark.entity.Bookmark;
 
 import java.util.List;
@@ -13,16 +11,37 @@ import java.util.List;
  * @author: gaox·Eric
  * @since 2018-11-28
  */
-@Service
-@Transactional
 public interface BookmarkService extends IService<Bookmark> {
 
-    /**新增*/
+    /**
+     * 新增
+     *
+     * @param bookmark bookmark
+     * @return bookmark
+     */
     Bookmark insert(Bookmark bookmark);
-    /**修改*/
+
+    /**
+     * 修改
+     *
+     * @param bookmark bookmark
+     * @return bookmark
+     */
     Bookmark update(Bookmark bookmark);
-    /**删除*/
+
+    /**
+     * 删除
+     *
+     * @param bookmark bookmark
+     * @return bookmark
+     */
     Bookmark delOne(Bookmark bookmark);
-    /**查找根据id*/
+
+    /**
+     * 查找根据 name
+     *
+     * @param bookmark bookmark
+     * @return bookmarks
+     */
     List<Bookmark> find(Bookmark bookmark);
 }

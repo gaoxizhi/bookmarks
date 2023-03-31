@@ -1,11 +1,9 @@
 package site.gaox.bookmark.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 
@@ -16,10 +14,12 @@ import java.io.Serializable;
  * @since 2018-11-28
  */
 @Data
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @TableName("book_mark")
 public class Bookmark extends BaseEntity implements Serializable {
 
