@@ -10,31 +10,31 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * <p> 书签表 </p>
+ * <p> 书签目录表 </p>
  *
  * @author: gaox·Eric
- * @since 2018-11-28
+ * @since 2018-11-24
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("book_mark")
-public class Bookmark extends BaseEntity implements Serializable {
+@TableName("folder")
+public class Folder extends BaseEntity implements Serializable {
 
     /**
-     * 书签名
+     * 目录名
      */
     private String name;
 
     /**
-     * 书签图标
+     * 目录图标
      */
     private String icon;
 
     /**
-     * 在目录中的顺序
+     * 在页面上的顺序
      */
     private Integer orderNum;
 

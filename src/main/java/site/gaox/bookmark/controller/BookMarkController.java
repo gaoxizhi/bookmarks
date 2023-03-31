@@ -1,40 +1,54 @@
 package site.gaox.bookmark.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import site.gaox.bookmark.entity.BookMark;
-import site.gaox.bookmark.service.BookMarkService;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+import site.gaox.bookmark.entity.Bookmark;
+import site.gaox.bookmark.service.BookmarkService;
 
 /**
- * <p>
- * 书签表 前端控制器
- * </p>
+ * <p> 书签表 前端控制器 </p>
  *
- * @author gaox
+ * @author: gaox·Eric
  * @since 2018-11-28
  */
 @RestController
-@RequestMapping("/bookMark")
-public class BookMarkController {
-    @Autowired
-    private BookMarkService bookMarkService;
-    @GetMapping(value = "{id}")
-    public BookMark getBookMark(Long id){
-        return bookMarkService.getById(id);
+@RequestMapping("/bookmark")
+@AllArgsConstructor
+public class BookmarkController {
+
+    private BookmarkService bookmarkService;
+
+    /**
+     * 获取
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/{id}")
+    public Bookmark getBookmark(@PathVariable("id") Long id) {
+        return bookmarkService.getById(id);
     }
 
-    //插入一条记录
-    @PostMapping(value = "/add")
-    public Boolean save(String name,Integer orderNum, Integer parentId){
-        BookMark bookMark = new BookMark();
-        bookMark.setName(name);
-        bookMark.setParentId(parentId);
-        bookMark.setOrderNum(orderNum);
-        return bookMarkService.save(bookMark);
+    /**
+     * 插入一条记录
+     *
+     * @param name     书签名
+     * @param orderNum 排序
+     * @param parentId 父目录
+     * @return
+     */
+
+    @RequestMapping(value = "/add", method = {RequestMethod.GET, RequestMethod.POST})
+    public Bookmark save(String name, Integer orderNum, Integer parentId) {
+        Bookmark bookmark = new Bookmark();
+        bookmark.setName(name);
+        bookmark.setParentId(parentId);
+        bookmark.setOrderNum(orderNum);
+
+        bookmarkService.save(bookmark);
+        bookmark = bookmarkService.getById(bookmark.getId());
+        return bookmark;
     }
 
 

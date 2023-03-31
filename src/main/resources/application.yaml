@@ -1,0 +1,30 @@
+server:
+  port: 6725
+  #\u4E2D\u6587\u4E71\u7801
+  tomcat.uri-encoding: UTF-8
+  servlet:
+    context-path: /
+
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/gaox?characterEncoding=utf-8&useSSL=false&useUnicode=true
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # \u5F00\u542Fmybatis\u9A7C\u5CF0\u547D\u540D\u6CD5
+    map-underscore-to-camel-case: true
+    # \u914D\u7F6E\u626B\u63CFxml
+    mapper-locations: classpath:/mybatis/**/*Mapper.xml
+    # \u5B9E\u4F53\u626B\u63CF\uFF0C\u591A\u4E2Apackage\u7528\u9017\u53F7\u6216\u8005\u5206\u53F7\u5206\u9694
+    type-aliases-package: site.gaox.bookmark.entity
+

@@ -1,16 +1,14 @@
 package site.gaox.bookmark.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import site.gaox.bookmark.entity.BookMark;
+import site.gaox.bookmark.entity.Bookmark;
 
 /**
- * <p>
- * 书签表 Mapper 接口
- * </p>
+ * <p> 书签表 Mapper 接口 </p>
  *
- * @author gaox
+ * @author: gaox·Eric
  * @since 2018-11-28
  */
-public interface BookMarkMapper extends BaseMapper<BookMark> {
+public interface BookmarkMapper extends BaseMapper<Bookmark> {
 
 }
