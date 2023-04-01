@@ -1,6 +1,6 @@
 server:
   port: 6725
-  #\u4E2D\u6587\u4E71\u7801
+  #中文乱码
   tomcat.uri-encoding: UTF-8
   servlet:
     context-path: /
@@ -21,10 +21,10 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    # \u5F00\u542Fmybatis\u9A7C\u5CF0\u547D\u540D\u6CD5
+    # 开启mybatis驼峰命名法
     map-underscore-to-camel-case: true
-    # \u914D\u7F6E\u626B\u63CFxml
+    # 配置扫描xml
     mapper-locations: classpath:/mybatis/**/*Mapper.xml
-    # \u5B9E\u4F53\u626B\u63CF\uFF0C\u591A\u4E2Apackage\u7528\u9017\u53F7\u6216\u8005\u5206\u53F7\u5206\u9694
+    # 实体扫描，多个package用逗号或者分号分隔
     type-aliases-package: site.gaox.bookmark.entity
 
