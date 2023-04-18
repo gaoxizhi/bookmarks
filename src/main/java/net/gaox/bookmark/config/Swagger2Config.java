@@ -1,5 +1,6 @@
 package net.gaox.bookmark.config;
 
+import com.google.common.base.Predicates;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,8 +38,11 @@ public class Swagger2Config implements WebMvcConfigurer {
                 .apiInfo(apiInfo())
                 .enable(true)
                 .select()
+                // 选择包路径
                 .apis(RequestHandlerSelectors.basePackage("net/gaox/bookmark/controller"))
-                .paths(PathSelectors.any())
+                // 不显示错误的接口地址
+                .paths(Predicates.not(PathSelectors.regex("/error.*")))
+                .paths(Predicates.not(PathSelectors.regex("/bookmark.*")))
                 .build();
 
         return docket;
