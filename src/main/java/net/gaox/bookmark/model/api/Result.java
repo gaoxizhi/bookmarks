@@ -18,4 +18,41 @@ import java.io.Serializable;
 @Builder
 @Accessors(chain = true)
 public class Result<T> implements Serializable {
+
+    private Integer code;
+    private T data;
+    private Boolean success;
+
+    public Result() {
+        this.success = true;
+        this.code = 0;
+    }
+
+    public Result(T data) {
+        this.success = true;
+        this.code = 0;
+        this.data = data;
+    }
+
+    public static Result success() {
+        Result result = new Result<>()
+                .setSuccess(true)
+                .setCode(0);
+        return result;
+    }
+
+    public static Result fail() {
+        Result result = new Result<>()
+                .setSuccess(false)
+                .setCode(1);
+        return result;
+    }
+
+    public static Result success(Object data) {
+        Result result = new Result<>()
+                .setSuccess(true)
+                .setCode(0)
+                .setData(data);
+        return result;
+    }
 }
