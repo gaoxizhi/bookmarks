@@ -1,0 +1,3 @@
+CREATE USER 'gaox' IDENTIFIED BY 'gaox';
+GRANT ALL ON *.* TO 'gaox' @'%';
+FLUSH PRIVILEGES;

@@ -18,7 +18,7 @@ SET
 
 SET
 FOREIGN_KEY_CHECKS = 0;
-
+CREATE DATABASE IF NOT EXISTS `gaox` DEFAULT CHARACTER SET 'utf8mb4' DEFAULT COLLATE 'utf8mb4_general_ci';
 -- ----------------------------
 -- Table structure for book_mark
 -- ----------------------------
